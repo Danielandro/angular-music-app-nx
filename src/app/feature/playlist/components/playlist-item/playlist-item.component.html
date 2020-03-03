@@ -1,0 +1,7 @@
+<div class="playlist-card" *ngIf="playlist">
+  <div class="playlist-cover--overlay">
+    <!-- <span class="playlist__desc">{{ playlist.description }}</span> -->
+    <img src="{{ playlist.picture_medium }}" alt=" playlist cover" class="playlist__cover">
+  </div>
+  <p class="playlist__title">{{ playlist.title }}</p>
+</div>
