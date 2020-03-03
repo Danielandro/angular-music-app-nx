@@ -1,0 +1,10 @@
+{
+  "/api/*": {
+    "target": "https://cors-anywhere.herokuapp.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
