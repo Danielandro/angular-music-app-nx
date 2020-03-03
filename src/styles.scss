@@ -10,7 +10,7 @@
 
 html,
 body {
-  background-color: map-get(variables.$colors, black);
+  background-color: map-get(variables.$colors, dark-grey);
   color: map-get(variables.$colors, white);
   font-family: fonts.$primary-font;
   font-weight: fonts.$regular;

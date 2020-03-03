@@ -36,7 +36,7 @@
 
         &:hover {
           background-color: map-get(variables.$colors, spotify-green);
-          color: map-get(variables.$colors, black);
+          color: map-get(variables.$colors, dark-grey);
         }
       }
     }

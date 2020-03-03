@@ -4,5 +4,12 @@
   </ul>
 </div> -->
 
-<!-- <pre><code>{{ artists$ | async | json }}</code></pre> -->
-<h1 class="header">Some wqords</h1>
+<h1 class="header">{{ pageTitle }}</h1>
+
+<div *ngIf="playlist$ | async as playlist" class="playlist-card">
+  <div class="playlist-cover--overlay">
+    <!-- <span class="playlist__desc">{{ playlist.description }}</span> -->
+    <img src="{{ playlist.picture_medium }}" alt=" playlist cover" class="playlist__cover">
+  </div>
+  <p class="playlist__title">{{ playlist.title }}</p>
+</div>
