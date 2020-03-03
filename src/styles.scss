@@ -14,4 +14,6 @@ body {
   color: map-get(variables.$colors, white);
   font-family: fonts.$primary-font;
   font-weight: fonts.$regular;
+  margin: 0;
+  padding: 0;
 }

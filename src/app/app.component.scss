@@ -1,0 +1,48 @@
+@use "variables";
+@use "fonts";
+
+.container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+  &__header {
+    font-size: fonts.$font-lg;
+  }
+
+  .side-navbar {
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid map-get(variables.$colors, medium-grey);
+    height: 100vh;
+    margin: 0;
+    align-content: stretch;
+    flex-grow: 1;
+  }
+
+  .nav-links {
+    .nav-links__list {
+      width: 100%;
+      list-style: none;
+      padding: 0;
+
+      .nav-item {
+        padding: 40px 0;
+        margin: 0;
+        font-weight: fonts.$medium;
+        // border: 2px solid map-get(variables.$colors, light-grey);
+        width: 100%;
+        transition: 0.3s;
+
+        &:hover {
+          background-color: map-get(variables.$colors, spotify-green);
+          color: map-get(variables.$colors, black);
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex-grow: 20;
+  }
+}

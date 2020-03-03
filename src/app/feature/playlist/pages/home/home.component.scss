@@ -1,0 +1,5 @@
+@use "variables";
+
+.header {
+  color: map-get(variables.$colors, spotify-green);
+}
