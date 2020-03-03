@@ -1,21 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use "assets/scss/modules/fonts";
-@use "assets/scss/modules/variables";
-
-// primary font
-$primary-font: "Circular Spotify Text";
-// font-weight
-$regular: normal;
-$light: 300;
-$medium: 500;
-$bold: bold;
-$black: 900;
-// Font size
-$font-xs: 12px;
-$font-sm: 14px;
-$primary-fs: 16px;
-$font-md: 18px;
-$font-lg: 20px;
+@use "fonts";
+@use "variables";
 
 *,
 *::before,
@@ -27,6 +12,6 @@ html,
 body {
   background-color: map-get(variables.$colors, black);
   color: map-get(variables.$colors, white);
-  font-family: $primary-font;
-  font-weight: $regular;
+  font-family: fonts.$primary-font;
+  font-weight: fonts.$regular;
 }
