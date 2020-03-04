@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MusicApiService } from 'src/app/services/music-api.service';
 import { Observable } from 'rxjs';
 import { Artist } from 'src/app/shared/models/artist';
-import { Playlist } from 'src/app/shared/models/playlist';
+import { UserPlaylist } from 'src/app/shared/models/userPlaylists';
 
 @Component({
   selector: "app-home",
@@ -11,12 +11,12 @@ import { Playlist } from 'src/app/shared/models/playlist';
 })
 export class HomeComponent implements OnInit {
   pageTitle = "Your Playlists";
-  playlist$: Observable<Playlist>;
+  userPlaylists$: Observable<UserPlaylist[]>;
 
   constructor(private musicApiService: MusicApiService) { }
 
   ngOnInit(): void {
-    this.playlist$ = this.musicApiService.getPlaylist();
+    this.userPlaylists$ = this.musicApiService.getUserPlaylists();
   }
 
 }

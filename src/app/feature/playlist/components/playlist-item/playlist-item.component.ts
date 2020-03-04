@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { Playlist } from 'src/app/shared/models/playlist';
+import { UserPlaylist } from 'src/app/shared/models/userPlaylists';
 
 @Component({
   selector: 'app-playlist-item',
@@ -8,7 +8,7 @@ import { Playlist } from 'src/app/shared/models/playlist';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlaylistItemComponent implements OnInit {
-  @Input() playlist: Playlist;
+  @Input() playlist: UserPlaylist;
   constructor() { }
 
   ngOnInit(): void {

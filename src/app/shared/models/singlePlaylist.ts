@@ -3,7 +3,7 @@ import { BasePlaylist, Creator } from './basePlaylist';
 export interface SinglePlaylist extends BasePlaylist {
   description: string;
   duration: number;
-  isLovedTrack: boolean;
+  is_loved_track: boolean;
   collaborative: boolean;
   fans: number;
   share: string;
@@ -21,16 +21,16 @@ export interface PlaylistTrack {
   id: number;
   readable: boolean;
   title: string;
-  titleShort: string;
-  titleVersion?: string;
+  title_short: string;
+  title_version?: string;
   link: string;
   duration: number;
   rank: number;
-  explicitLyrics: boolean;
-  explicitContentLyrics: number;
-  explicitContentCover: number;
+  explicit_lyrics: boolean;
+  explicit_content_lyrics: number;
+  explicit_content_cover: number;
   preview: string;
-  timeAdd: number;
+  time_add: number;
   artist: Creator;
   album: Album;
   type: string;
@@ -40,10 +40,10 @@ export interface Album {
   id: number;
   title: string;
   cover: string;
-  coverSmall: string;
-  coverMedium: string;
-  coverBig: string;
-  coverXl: string;
+  cove_small: string;
+  cover_medium: string;
+  cover_big: string;
+  cover_xl: string;
   tracklist: string;
   type: string;
 }

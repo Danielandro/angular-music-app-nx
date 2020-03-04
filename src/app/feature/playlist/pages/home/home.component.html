@@ -6,4 +6,5 @@
 
 <h1 class="header">{{ pageTitle }}</h1>
 
-<app-playlist-item [playlist]="playlist$ | async"></app-playlist-item>
+<!-- <app-playlist-item [playlist]="userPlaylists$ | async"></app-playlist-item> -->
+<app-playlist-list [playlists]="userPlaylists$ | async"></app-playlist-list>

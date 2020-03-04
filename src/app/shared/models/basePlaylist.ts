@@ -8,16 +8,16 @@ export interface BasePlaylist {
   id: number;
   title: string;
   public: boolean;
-  nbTracks: number;
+  nb_tracks: number;
   link: string;
   picture: string;
-  pictureSmall: string;
-  pictureMedium: string;
-  pictureBig: string;
-  pictureXl: string;
+  picture_small: string;
+  picture_medium: string;
+  picture_big: string;
+  picture_xl: string;
   checksum: string;
   tracklist: string;
-  creationDate: Date;
+  creation_date: Date;
   type: string;
 }
 

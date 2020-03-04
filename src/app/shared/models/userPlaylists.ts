@@ -7,11 +7,11 @@ export interface UserPlaylistResponseData extends BasePlaylistResponseData {
 
 export interface UserPlaylist extends BasePlaylist {
   duration: number;
-  isLovedTrack: boolean;
+  is_loved_track: boolean;
   collaborative: boolean;
   fans: number;
-  timeAdd: number;
-  timeMod: number;
+  time_add: number;
+  time_mod: number;
   creator: Creator;
 }
 
