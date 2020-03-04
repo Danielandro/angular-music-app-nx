@@ -3,6 +3,8 @@ import { MusicApiService } from 'src/app/services/music-api.service';
 import { Observable } from 'rxjs';
 import { Artist } from 'src/app/shared/models/artist';
 import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
+import { Select } from '@ngxs/store';
+import { UserPlaylistState } from '../../store/user-playlist/user-playlist.state';
 
 @Component({
   selector: "app-home",
@@ -11,12 +13,12 @@ import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
 })
 export class HomeComponent implements OnInit {
   pageTitle = "Your Playlists";
-  userPlaylists$: Observable<UserPlaylist[]>;
+  @Select(UserPlaylistState.selectPlaylists) userPlaylists$: Observable<UserPlaylist[]>;
 
   constructor(private musicApiService: MusicApiService) { }
 
   ngOnInit(): void {
-    this.userPlaylists$ = this.musicApiService.getUserPlaylists();
+
   }
 
 }

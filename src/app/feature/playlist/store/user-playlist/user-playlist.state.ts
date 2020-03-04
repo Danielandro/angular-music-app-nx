@@ -8,6 +8,7 @@ import { tap, catchError } from 'rxjs/operators';
 
 // add other state properties here
 export interface UserPlaylistStateModel extends EntityState<UserPlaylist> {
+  userPlaylistsLoaded: boolean;
   error?: boolean;
 }
 
@@ -19,7 +20,9 @@ const { selectAll } = adapter.getSelectors();
 
 @State<UserPlaylistStateModel>({
   name: 'userPlaylists',
-  defaults: adapter.getInitialState({})
+  defaults: adapter.getInitialState({
+    userPlaylistsLoaded: false
+  })
 })
 @Injectable()
 export class UserPlaylistState {
@@ -31,6 +34,17 @@ export class UserPlaylistState {
   public static getState(state: UserPlaylistStateModel) {
     return state;
   }
+
+  @Selector()
+  public static isLoaded(state: UserPlaylistStateModel) {
+    return state.userPlaylistsLoaded;
+  }
+
+  @Selector()
+  public static selectPlaylists(state: UserPlaylistStateModel) {
+    return selectAll(state);
+  }
+
 
   // ACTIONS
   @Action(UserPlaylistActions.FetchUserPlaylists)
@@ -47,7 +61,8 @@ export class UserPlaylistState {
     const state = getState();
 
     patchState({
-      ...adapter.addAll(payload, state)
+      ...adapter.addAll(payload, state),
+      userPlaylistsLoaded: true
     });
   }
 

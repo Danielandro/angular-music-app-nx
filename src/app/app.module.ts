@@ -22,7 +22,7 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     RouterModule.forRoot([
       { path: "playlists", loadChildren: () => import("./feature/playlist/playlist.module").then(m => m.PlaylistModule) },
-      { path: "**", redirectTo: "/" }
+      { path: "**", redirectTo: "/playlists" }
     ]),
     // NGXS store
     NgxsModule.forRoot([], { developmentMode: !environment.production }),
