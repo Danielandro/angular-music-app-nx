@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { UserPlaylist } from 'src/app/shared/models/userPlaylists';
+import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
 
 @Component({
   selector: 'app-playlist-item',

@@ -3,9 +3,9 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { tap, map } from "rxjs/operators";
 import { Artist } from '../shared/models/artist';
-import { SinglePlaylist } from '../shared/models/singlePlaylist';
-import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/topPlaylists";
-import { UserPlaylistResponseData, UserPlaylist } from "../shared/models/userPlaylists";
+import { SinglePlaylist } from '../shared/models/single-playlist.model';
+import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/top-playlists.model";
+import { UserPlaylistResponseData, UserPlaylist } from "../shared/models/user-playlists.model";
 
 @Injectable({
   providedIn: 'root'

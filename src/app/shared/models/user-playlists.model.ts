@@ -1,4 +1,4 @@
-import { BasePlaylist, BasePlaylistResponseData, Creator } from './basePlaylist';
+import { BasePlaylist, BasePlaylistResponseData, Creator } from './base-playlist.interface';
 
 export interface UserPlaylistResponseData extends BasePlaylistResponseData {
   data: UserPlaylist[];

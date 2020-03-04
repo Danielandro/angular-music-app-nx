@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MusicApiService } from 'src/app/services/music-api.service';
 import { Observable } from 'rxjs';
 import { Artist } from 'src/app/shared/models/artist';
-import { UserPlaylist } from 'src/app/shared/models/userPlaylists';
+import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
 
 @Component({
   selector: "app-home",
