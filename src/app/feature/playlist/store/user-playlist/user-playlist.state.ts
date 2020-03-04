@@ -41,6 +41,11 @@ export class UserPlaylistState {
   }
 
   @Selector()
+  public static selectError(state: UserPlaylistStateModel) {
+    return state.error;
+  }
+
+  @Selector()
   public static selectPlaylists(state: UserPlaylistStateModel) {
     return selectAll(state);
   }

@@ -14,6 +14,7 @@ import { UserPlaylistState } from '../../store/user-playlist/user-playlist.state
 export class HomeComponent implements OnInit {
   pageTitle = "Your Playlists";
   @Select(UserPlaylistState.selectPlaylists) userPlaylists$: Observable<UserPlaylist[]>;
+  @Select(UserPlaylistState.selectError) fetchError: Observable<boolean>;
 
   constructor(private musicApiService: MusicApiService) { }
 

@@ -45,9 +45,12 @@ export class MusicApiService {
   getUserPlaylists(
     limit: number = this.resultsLimit,
     offset: number = this.resultsOffset): Observable<UserPlaylist[]> {
-    return this.http.get<UserPlaylistResponseData>(`${this.musicApiUrl}/user/3236861244/playlists`)
+    return this.http.get<UserPlaylistResponseData>(`${this.musicApiUrl}/user/3236861244/playlistsx`)
       .pipe(
-        map(res => res.data),
+        map(res => {
+          console.log("API RESPONSE: ", res);
+          return res.data;
+        }),
         tap(playlists => console.log("User Playlists: ", playlists)),
         catchError(err => this.handleError(err))
       );
