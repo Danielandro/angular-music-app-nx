@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
-import { tap, map } from "rxjs/operators";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { Observable, throwError } from 'rxjs';
+import { tap, map, catchError } from "rxjs/operators";
 import { Artist } from '../shared/models/artist';
 import { SinglePlaylist } from '../shared/models/single-playlist.model';
 import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/top-playlists.model";
@@ -27,7 +27,8 @@ export class MusicApiService {
   getPlaylist(): Observable<SinglePlaylist> {
     return this.http.get<SinglePlaylist>(`${this.musicApiUrl}/playlist/908622995`).
       pipe(
-        tap(res => console.log("Playlist: ", res))
+        tap(res => console.log("Playlist: ", res)),
+        catchError(err => this.handleError(err))
       );
   }
 
@@ -36,7 +37,8 @@ export class MusicApiService {
     offset: number = this.resultsOffset): Observable<TopPlaylist[]> {
     return this.http.get<TopPlaylistResponseData>(`${this.musicApiUrl}/chart/0/playlists?index=${offset}&limit=${limit}`)
       .pipe(
-        map(res => res.data)
+        map(res => res.data),
+        catchError(err => this.handleError(err))
       );
   }
 
@@ -46,7 +48,22 @@ export class MusicApiService {
     return this.http.get<UserPlaylistResponseData>(`${this.musicApiUrl}/user/3236861244/playlists`)
       .pipe(
         map(res => res.data),
-        tap(playlists => console.log("User Playlists: ", playlists))
+        tap(playlists => console.log("User Playlists: ", playlists)),
+        catchError(err => this.handleError(err))
       );
   }
+
+  private handleError(err: HttpErrorResponse) {
+    let errorMessage: string;
+    if (err.error instanceof ErrorEvent) {
+      // A client-side or network error occured. Handle it accordingly!
+      errorMessage = `An error occured: ${err.error.message}`;
+    } else {
+      // The backend returned an unsuccessful response code.
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  }
 }
+
