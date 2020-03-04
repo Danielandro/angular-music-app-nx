@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
 
 import { NgxsModule } from "@ngxs/store";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
@@ -19,7 +20,10 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     HttpClientModule,
-    PlaylistModule,
+    RouterModule.forRoot([
+      { path: "playlists", loadChildren: () => import("./feature/playlist/playlist.module").then(m => m.PlaylistModule) },
+      { path: "**", redirectTo: "/" }
+    ]),
     // NGXS store
     NgxsModule.forRoot([], { developmentMode: !environment.production }),
     // Logger - console.log for every action
@@ -27,7 +31,7 @@ import { environment } from 'src/environments/environment';
     // Redux devtools support
     NgxsReduxDevtoolsPluginModule.forRoot(),
     // Adds route info to state
-    // NgxsRouterPluginModule.forRoot()
+    NgxsRouterPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
 
 import { NgxsModule } from "@ngxs/store";
 
@@ -15,6 +16,9 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
+    RouterModule.forChild([
+      { path: "", component: HomeComponent }
+    ]),
     NgxsModule.forFeature([])
   ],
   exports: [
