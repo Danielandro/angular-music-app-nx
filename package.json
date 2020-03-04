@@ -24,6 +24,7 @@
     "@ngxs/router-plugin": "^3.6.2",
     "@ngxs/schematics": "0.0.1-alpha.5",
     "@ngxs/store": "^3.3.2",
+    "ngxs-entity": "^1.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

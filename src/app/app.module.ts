@@ -27,7 +27,7 @@ import { environment } from 'src/environments/environment';
     // Redux devtools support
     NgxsReduxDevtoolsPluginModule.forRoot(),
     // Adds route info to state
-    NgxsRouterPluginModule.forRoot()
+    // NgxsRouterPluginModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
