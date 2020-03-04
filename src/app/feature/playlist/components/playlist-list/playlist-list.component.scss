@@ -1,0 +1,12 @@
+.playlists {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  justify-content: space-between;
+
+  &__item {
+    // flex-grow | flex-shrink | flex-basis
+    flex: 1 0 30%;
+    margin: 30px auto;
+  }
+}

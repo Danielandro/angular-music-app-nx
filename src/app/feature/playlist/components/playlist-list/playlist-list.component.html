@@ -1,3 +1,5 @@
-<div class="container" *ngFor="let playlist of playlists">
-  <app-playlist-item [playlist]="playlist"></app-playlist-item>
+<div class="playlists">
+  <div *ngFor="let playlist of playlists" class="playlists__item">
+    <app-playlist-item [playlist]="playlist"></app-playlist-item>
+  </div>
 </div>

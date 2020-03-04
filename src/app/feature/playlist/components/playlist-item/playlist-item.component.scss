@@ -1,10 +1,14 @@
 @use "variables";
 
+.playlist-card {
+  display: inline-block;
+}
+
 .playlist-cover--overlay {
   background: linear-gradient(map-get(variables.$colors, dark-grey), map-get(variables.$colors, spotify-green));
   height: fit-content;
   width: fit-content;
-  margin: 0 auto;
+  // margin: 0;
   opacity: 1;
   transition: 0.4s;
   position: relative;

@@ -17,7 +17,7 @@
     height: 100vh;
     margin: 0;
     align-content: stretch;
-    flex-grow: 1;
+    flex: 1 0 15%;
   }
 
   .nav-links {
@@ -43,6 +43,7 @@
   }
 
   .main-content {
-    flex-grow: 20;
+    flex-basis: 85%;
+    flex-shrink: 0;
   }
 }
