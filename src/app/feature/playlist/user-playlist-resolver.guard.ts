@@ -22,6 +22,7 @@ export class UserPlaylistResolver implements Resolve<any> {
       .pipe(
         tap(playlistsLoaded => {
           if (!playlistsLoaded && !this.routeLoading) {
+            console.log("*******PLAYLISTS NOT IN STORE*******");
             this.routeLoading = true;
             return this.store.dispatch(new UserPlaylistActions.FetchUserPlaylists());
           }

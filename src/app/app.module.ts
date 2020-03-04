@@ -7,6 +7,7 @@ import { NgxsModule } from "@ngxs/store";
 import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { NgxsRouterPluginModule } from "@ngxs/router-plugin";
+import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 
 import { AppComponent } from './app.component';
 import { PlaylistModule } from './feature/playlist/playlist.module';
@@ -31,7 +32,11 @@ import { environment } from 'src/environments/environment';
     // Redux devtools support
     NgxsReduxDevtoolsPluginModule.forRoot(),
     // Adds route info to state
-    NgxsRouterPluginModule.forRoot()
+    NgxsRouterPluginModule.forRoot(),
+    // Adds localStorage capabilites
+    NgxsStoragePluginModule.forRoot({
+      key: "playlist"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
