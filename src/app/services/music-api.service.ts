@@ -45,13 +45,13 @@ export class MusicApiService {
   getUserPlaylists(
     limit: number = this.resultsLimit,
     offset: number = this.resultsOffset): Observable<UserPlaylist[]> {
-    return this.http.get<UserPlaylistResponseData>(`${this.musicApiUrl}/user/3236861244/playlistsx`)
+    return this.http.get<UserPlaylistResponseData>(`api/user/3236861244/playlists`)
       .pipe(
         map(res => {
           console.log("API RESPONSE: ", res);
           return res.data;
         }),
-        tap(playlists => console.log("User Playlists: ", playlists)),
+        tap(data => console.log("User Playlists: ", data)),
         catchError(err => this.handleError(err))
       );
   }
@@ -65,8 +65,10 @@ export class MusicApiService {
       // The backend returned an unsuccessful response code.
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
-    console.log(errorMessage);
+    console.log("ERROR FROM MUSIC API: ", errorMessage);
     return throwError(errorMessage);
   }
 }
 
+
+// https://connect.deezer.com/oauth/auth.php?app_id=398684&redirect_uri=localhost:4200&perms=basic_access,email
