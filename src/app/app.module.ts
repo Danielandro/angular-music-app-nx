@@ -12,6 +12,7 @@ import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
 import { AppComponent } from './app.component';
 import { PlaylistModule } from './feature/playlist/playlist.module';
 import { environment } from 'src/environments/environment';
+import { AuthModule } from "./feature/auth/auth.module";
 
 
 @NgModule({
@@ -23,8 +24,9 @@ import { environment } from 'src/environments/environment';
     HttpClientModule,
     RouterModule.forRoot([
       { path: "playlists", loadChildren: () => import("./feature/playlist/playlist.module").then(m => m.PlaylistModule) },
-      { path: "**", redirectTo: "/playlists" }
+      // { path: "**", redirectTo: "/playlists" }
     ]),
+    AuthModule,
     // NGXS store
     NgxsModule.forRoot([], { developmentMode: !environment.production }),
     // Logger - console.log for every action

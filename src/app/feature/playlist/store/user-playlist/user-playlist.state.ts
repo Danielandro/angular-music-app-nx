@@ -5,6 +5,7 @@ import { UserPlaylistActions } from "./user-playlist.actions";
 import { Injectable } from '@angular/core';
 import { MusicApiService } from 'src/app/services/music-api.service';
 import { tap, catchError } from 'rxjs/operators';
+import { PlaylistState } from '../playlist.state';
 
 // add other state properties here
 export interface UserPlaylistStateModel extends EntityState<UserPlaylist> {
@@ -56,8 +57,18 @@ export class UserPlaylistState {
   fetchPlaylists({ dispatch }: StateContext<UserPlaylistStateModel>) {
     return this.musicApiService.getUserPlaylists()
       .pipe(
-        tap((playlists) => dispatch(new UserPlaylistActions.FetchSuccessful(playlists))),
-        catchError(err => dispatch(new UserPlaylistActions.FetchFailed(err)))
+        // tap((playlists) => dispatch(new UserPlaylistActions.FetchSuccessful(playlists))),
+        // catchError(err => dispatch(new UserPlaylistActions.FetchFailed(err)))
+        tap((playlists) => {
+          // if playlists is defined, request was successful
+          if (playlists) {
+            return dispatch(new UserPlaylistActions.FetchSuccessful(playlists));
+          } else {
+            return dispatch(new UserPlaylistActions.FetchFailed(playlists));
+          }
+
+        }),
+        // catchError(err => dispatch(new UserPlaylistActions.FetchFailed(err)))
       );
   }
 

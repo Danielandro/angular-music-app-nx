@@ -9,7 +9,7 @@
     }
   },
   "/auth/*": {
-    "target": "https://connect.deezer.com/oauth/auth.php?",
+    "target": "https://connect.deezer.com/oauth/auth.php",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true,
