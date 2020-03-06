@@ -1,15 +1,14 @@
 import { State, Selector, StateContext, Action } from '@ngxs/store';
 import { EntityState, createEntityAdapter } from 'ngxs-entity';
-import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
+import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
 import { UserPlaylistActions } from "./user-playlist.actions";
 import { Injectable } from '@angular/core';
 import { MusicApiService } from 'src/app/services/music-api.service';
 import { tap, catchError } from 'rxjs/operators';
-import { PlaylistState } from '../playlist.state';
 
 // add other state properties here
 export interface UserPlaylistStateModel extends EntityState<UserPlaylist> {
-  userPlaylistsLoaded: boolean;
+  loaded: boolean;
   error?: boolean;
 }
 
@@ -20,9 +19,9 @@ const adapter = createEntityAdapter<UserPlaylist>();
 const { selectAll } = adapter.getSelectors();
 
 @State<UserPlaylistStateModel>({
-  name: 'userPlaylists',
+  name: 'userPlaylist',
   defaults: adapter.getInitialState({
-    userPlaylistsLoaded: false
+    loaded: false
   })
 })
 @Injectable()
@@ -38,7 +37,7 @@ export class UserPlaylistState {
 
   @Selector()
   public static isLoaded(state: UserPlaylistStateModel) {
-    return state.userPlaylistsLoaded;
+    return state.loaded;
   }
 
   @Selector()
@@ -78,7 +77,7 @@ export class UserPlaylistState {
 
     patchState({
       ...adapter.addAll(payload, state),
-      userPlaylistsLoaded: true
+      loaded: true
     });
   }
 

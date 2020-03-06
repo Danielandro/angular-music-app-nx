@@ -1,4 +1,4 @@
-import { UserPlaylist } from 'src/app/shared/models/user-playlists.model';
+import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
 
 export namespace UserPlaylistActions {
   export class FetchUserPlaylists {

@@ -4,8 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { tap, map, catchError } from "rxjs/operators";
 import { Artist } from '../shared/models/artist';
 import { SinglePlaylist } from '../shared/models/single-playlist.model';
-import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/top-playlists.model";
-import { UserPlaylistResponseData, UserPlaylist } from "../shared/models/user-playlists.model";
+import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/top-playlist.model";
+import { UserPlaylistResponseData, UserPlaylist } from "../shared/models/user-playlist.model";
 
 @Injectable({
   providedIn: 'root'
