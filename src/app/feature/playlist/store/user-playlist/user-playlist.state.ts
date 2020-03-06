@@ -41,7 +41,7 @@ export class UserPlaylistState {
   }
 
   @Selector()
-  public static selectError(state: UserPlaylistStateModel) {
+  public static isError(state: UserPlaylistStateModel) {
     return state.error;
   }
 
