@@ -7,7 +7,13 @@
 <h1 class="header">{{ pageTitle }}</h1>
 
 <!-- <app-playlist-item [playlist]="userPlaylists$ | async"></app-playlist-item> -->
-<app-playlist-list [playlists]="userPlaylists$ | async"></app-playlist-list>
+<!-- <app-playlist-list [playlists]="userPlaylists$ | async"></app-playlist-list> -->
 <!-- <div *ngIf="fetchError === true" class="error-message">
   Unable to retrieve playlists - Please try again later
 </div> -->
+
+<div *ngIf="userPlaylists$ | async as userPlaylists" class="playlists">
+  <div *ngFor="let playlist of userPlaylists" class="playlists__item">
+    <app-playlist-item [playlist]="playlist"></app-playlist-item>
+  </div>
+</div>

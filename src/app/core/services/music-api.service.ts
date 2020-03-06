@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable, throwError } from 'rxjs';
 import { tap, map, catchError } from "rxjs/operators";
-import { Artist } from '../shared/models/artist';
-import { SinglePlaylist } from '../shared/models/single-playlist.model';
-import { TopPlaylistResponseData, TopPlaylist } from "../shared/models/top-playlist.model";
-import { UserPlaylistResponseData, UserPlaylist } from "../shared/models/user-playlist.model";
+import { Artist } from '../../shared/models/artist';
+import { SinglePlaylist } from '../../shared/models/single-playlist.model';
+import { TopPlaylistResponseData, TopPlaylist } from "../../shared/models/top-playlist.model";
+import { UserPlaylistResponseData, UserPlaylist } from "../../shared/models/user-playlist.model";
+import { CoreModule } from '../core.module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: CoreModule
 })
 export class MusicApiService {
   musicApiUrl = "https://cors-anywhere.herokuapp.com/https://api.deezer.com";
