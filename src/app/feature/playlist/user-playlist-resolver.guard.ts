@@ -4,7 +4,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { UserPlaylistState } from './store/user-playlist/user-playlist.state';
-import { tap, finalize, first } from 'rxjs/operators';
+import { tap, finalize, first, retry } from 'rxjs/operators';
 import { UserPlaylistActions } from './store/user-playlist/user-playlist.actions';
 
 @Injectable()
@@ -22,13 +22,15 @@ export class UserPlaylistResolver implements Resolve<any> {
       .pipe(
         tap(playlistsLoaded => {
           if (!playlistsLoaded && !this.routeLoading) {
-            console.log("*******PLAYLISTS NOT IN STORE*******");
             this.routeLoading = true;
             return this.store.dispatch(new UserPlaylistActions.FetchUserPlaylists());
           }
         }),
         first(),
-        finalize(() => this.routeLoading = false)
+        finalize(() => {
+          console.log("[USER PLAYLIST RESOLVER] FETCHING USER PLAYLIST COMPLETE");
+          this.routeLoading = false;
+        })
       );
 
   }

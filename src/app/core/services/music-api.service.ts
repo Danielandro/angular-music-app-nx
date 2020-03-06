@@ -7,16 +7,19 @@ import { SinglePlaylist } from '../../shared/models/single-playlist.model';
 import { TopPlaylistResponseData, TopPlaylist } from "../../shared/models/top-playlist.model";
 import { UserPlaylistResponseData, UserPlaylist } from "../../shared/models/user-playlist.model";
 import { CoreModule } from '../core.module';
+import { Store } from '@ngxs/store';
+import { UserPlaylistActions } from 'src/app/feature/playlist/store/user-playlist/user-playlist.actions';
+import { ErrorData, PlaylistError } from 'src/app/shared/models/base-playlist.interface';
 
 @Injectable({
   providedIn: CoreModule
 })
 export class MusicApiService {
-  musicApiUrl = "https://cors-anywhere.herokuapp.com/https://api.deezer.com";
+  musicApiUrl = "https://api.deezer.com";
   resultsLimit = 10;
   resultsOffset = 0; // offset for pagination
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private store: Store) { }
 
   // getTopArtists(): Observable<Artist[]> {
   //   return this.http.get<Artist[]>(`${this.musicApiUrl}/chart/0/artists/`)
@@ -45,29 +48,32 @@ export class MusicApiService {
 
   getUserPlaylists(
     limit: number = this.resultsLimit,
-    offset: number = this.resultsOffset): Observable<UserPlaylist[]> {
+    offset: number = this.resultsOffset): Observable<UserPlaylistResponseData> {
     return this.http.get<UserPlaylistResponseData>(`api/user/3236861244/playlists`)
       .pipe(
-        map(res => {
-          console.log("API RESPONSE: ", res);
-          return res.data;
-        }),
         tap(data => console.log("User Playlists: ", data)),
+        // catches any client side errors
         catchError(err => this.handleError(err))
       );
   }
 
   private handleError(err: HttpErrorResponse) {
-    let errorMessage: string;
+    let message: string;
+    let type: string;
+    let code: number;
+
     if (err.error instanceof ErrorEvent) {
       // A client-side or network error occured. Handle it accordingly!
-      errorMessage = `An error occured: ${err.error.message}`;
+      message = `An error occured: ${err.error.message}`;
     } else {
       // The backend returned an unsuccessful response code.
-      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+      message = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
-    console.log("ERROR FROM MUSIC API: ", errorMessage);
-    return throwError(errorMessage);
+
+    type = err.statusText;
+    code = err.status;
+    this.store.dispatch(new UserPlaylistActions.FetchFailed({ error: { type, message, code } } as PlaylistError));
+    return throwError(message);
   }
 }
 

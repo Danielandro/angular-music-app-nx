@@ -27,6 +27,7 @@
       padding: 0;
 
       .nav-item {
+        outline: none;
         padding: 40px 0;
         margin: 0;
         font-weight: fonts.$medium;
@@ -37,6 +38,7 @@
         &:hover {
           background-color: map-get(variables.$colors, spotify-green);
           color: map-get(variables.$colors, dark-grey);
+          cursor: pointer;
         }
       }
     }

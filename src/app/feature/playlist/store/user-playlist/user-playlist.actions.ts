@@ -1,4 +1,5 @@
 import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
+import { ErrorData, PlaylistError } from 'src/app/shared/models/base-playlist.interface';
 
 export namespace UserPlaylistActions {
   export class FetchUserPlaylists {
@@ -10,6 +11,6 @@ export namespace UserPlaylistActions {
   }
   export class FetchFailed {
     public static readonly type = '[Fetch Playlists Action] Fetch Failed';
-    constructor(public error: any) { }
+    constructor(public payload: PlaylistError) { }
   }
 }

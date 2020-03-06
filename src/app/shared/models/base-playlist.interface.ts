@@ -1,6 +1,7 @@
 export interface BasePlaylistResponseData {
   data: BasePlaylist[];
   total: number;
+  error?: PlaylistError;
 }
 
 // DONE
@@ -26,4 +27,14 @@ export interface Creator {
   name: string;
   tracklist: string;
   type: string;
+}
+
+export interface PlaylistError {
+  error: ErrorData;
+}
+
+export interface ErrorData {
+  type: string;
+  message: string;
+  code: number;
 }

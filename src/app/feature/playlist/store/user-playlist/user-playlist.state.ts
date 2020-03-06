@@ -5,11 +5,12 @@ import { UserPlaylistActions } from "./user-playlist.actions";
 import { Injectable } from '@angular/core';
 import { MusicApiService } from 'src/app/core/services/music-api.service';
 import { tap, catchError } from 'rxjs/operators';
+import { ErrorData } from 'src/app/shared/models/base-playlist.interface';
 
 // add other state properties here
 export interface UserPlaylistStateModel extends EntityState<UserPlaylist> {
   loaded: boolean;
-  error?: boolean;
+  fetchError: ErrorData | null;
 }
 
 // create adapter. Tell it which model to use for entities.
@@ -21,7 +22,8 @@ const { selectAll } = adapter.getSelectors();
 @State<UserPlaylistStateModel>({
   name: 'userPlaylist',
   defaults: adapter.getInitialState({
-    loaded: false
+    loaded: false,
+    fetchError: null
   })
 })
 @Injectable()
@@ -41,8 +43,8 @@ export class UserPlaylistState {
   }
 
   @Selector()
-  public static isError(state: UserPlaylistStateModel) {
-    return state.error;
+  public static selectError(state: UserPlaylistStateModel) {
+    return state.fetchError;
   }
 
   @Selector()
@@ -56,18 +58,15 @@ export class UserPlaylistState {
   fetchPlaylists({ dispatch }: StateContext<UserPlaylistStateModel>) {
     return this.musicApiService.getUserPlaylists()
       .pipe(
-        // tap((playlists) => dispatch(new UserPlaylistActions.FetchSuccessful(playlists))),
-        // catchError(err => dispatch(new UserPlaylistActions.FetchFailed(err)))
-        tap((playlists) => {
-          // if playlists is defined, request was successful
-          if (playlists) {
-            return dispatch(new UserPlaylistActions.FetchSuccessful(playlists));
+        tap((res) => {
+          // check if error occured
+          if (res.error) {
+            return dispatch(new UserPlaylistActions.FetchFailed(res.error));
           } else {
-            return dispatch(new UserPlaylistActions.FetchFailed(playlists));
+            return dispatch(new UserPlaylistActions.FetchSuccessful(res.data));
           }
 
-        }),
-        // catchError(err => dispatch(new UserPlaylistActions.FetchFailed(err)))
+        })
       );
   }
 
@@ -77,18 +76,20 @@ export class UserPlaylistState {
 
     patchState({
       ...adapter.addAll(payload, state),
-      loaded: true
+      loaded: true,
+      fetchError: null
     });
   }
 
   @Action(UserPlaylistActions.FetchFailed)
-  fetchFailed({ getState, patchState }: StateContext<UserPlaylistStateModel>, { error }: UserPlaylistActions.FetchFailed) {
+  fetchFailed({ getState, patchState }: StateContext<UserPlaylistStateModel>, { payload }: UserPlaylistActions.FetchFailed) {
     const state = getState();
-    console.log("Error fetching user playlists: ", error);
+    const err = payload.error;
 
     patchState({
       ...state,
-      error: true
+      fetchError: err
     });
+
   }
 }

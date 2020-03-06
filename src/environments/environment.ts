@@ -13,4 +13,9 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+export class DeezerApiCredentials {
+  public readonly APP_ID: string = "398684";
+  public readonly USER_ID: string = "3236861244";
+}
