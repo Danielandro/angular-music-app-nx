@@ -8,12 +8,12 @@ import { UserPlaylistState } from '../../store/user-playlist/user-playlist.state
 import { ErrorData } from 'src/app/shared/models/base-playlist.interface';
 
 @Component({
-  selector: "app-home",
+  selector: 'app-home',
   templateUrl: './playlist-home.component.html',
   styleUrls: ['./playlist-home.component.scss']
 })
 export class PlaylistHomeComponent implements OnInit {
-  pageTitle = "Your Playlists";
+  pageTitle = 'Your Playlists';
   @Select(UserPlaylistState.selectPlaylists) userPlaylists$: Observable<UserPlaylist[]>;
   @Select(UserPlaylistState.selectError) fetchError$: Observable<ErrorData>;
 

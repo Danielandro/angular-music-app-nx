@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { tap, map, catchError } from "rxjs/operators";
+import { tap, map, catchError } from 'rxjs/operators';
 import { Artist } from '../../shared/models/artist';
 import { SinglePlaylist } from '../../shared/models/single-playlist.model';
-import { TopPlaylistResponseData, TopPlaylist } from "../../shared/models/top-playlist.model";
-import { UserPlaylistResponseData, UserPlaylist } from "../../shared/models/user-playlist.model";
+import { TopPlaylistResponseData, TopPlaylist } from '../../shared/models/top-playlist.model';
+import { UserPlaylistResponseData, UserPlaylist } from '../../shared/models/user-playlist.model';
 import { CoreModule } from '../core.module';
 import { Store } from '@ngxs/store';
 import { UserPlaylistActions } from 'src/app/feature/playlist/store/user-playlist/user-playlist.actions';
@@ -15,7 +15,7 @@ import { ErrorData, PlaylistError } from 'src/app/shared/models/base-playlist.in
   providedIn: CoreModule
 })
 export class MusicApiService {
-  musicApiUrl = "https://api.deezer.com";
+  musicApiUrl = 'https://api.deezer.com';
   resultsLimit = 10;
   resultsOffset = 0; // offset for pagination
 
@@ -31,7 +31,7 @@ export class MusicApiService {
   getPlaylist(): Observable<SinglePlaylist> {
     return this.http.get<SinglePlaylist>(`${this.musicApiUrl}/playlist/908622995`).
       pipe(
-        tap(res => console.log("Playlist: ", res)),
+        tap(res => console.log('Playlist: ', res)),
         catchError(err => this.handleError(err))
       );
   }
@@ -51,7 +51,7 @@ export class MusicApiService {
     offset: number = this.resultsOffset): Observable<UserPlaylistResponseData> {
     return this.http.get<UserPlaylistResponseData>(`api/user/3236861244/playlists`)
       .pipe(
-        tap(data => console.log("User Playlists: ", data)),
+        tap(data => console.log('User Playlists: ', data)),
         // catches any client side errors
         catchError(err => this.handleError(err))
       );

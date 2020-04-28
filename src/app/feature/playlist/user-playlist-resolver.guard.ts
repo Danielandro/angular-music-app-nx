@@ -15,7 +15,7 @@ export class UserPlaylistResolver implements Resolve<any> {
   constructor(private store: Store) { }
 
   resolve(route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+          state: RouterStateSnapshot
   ): Observable<any> {
 
     return this.playlistsLoaded$
@@ -28,7 +28,7 @@ export class UserPlaylistResolver implements Resolve<any> {
         }),
         first(),
         finalize(() => {
-          console.log("[USER PLAYLIST RESOLVER] FETCHING USER PLAYLIST COMPLETE");
+          console.log('[USER PLAYLIST RESOLVER] FETCHING USER PLAYLIST COMPLETE');
           this.routeLoading = false;
         })
       );

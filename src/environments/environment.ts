@@ -16,6 +16,6 @@ export const environment = {
 import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 
 export class DeezerApiCredentials {
-  public readonly APP_ID: string = "398684";
-  public readonly USER_ID: string = "3236861244";
+  public readonly APP_ID: string = '398684';
+  public readonly USER_ID: string = '3236861244';
 }

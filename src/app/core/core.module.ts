@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 
-import { NgxsModule } from "@ngxs/store";
-import { NgxsLoggerPluginModule } from "@ngxs/logger-plugin";
-import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
-import { NgxsRouterPluginModule } from "@ngxs/router-plugin";
-import { NgxsStoragePluginModule } from "@ngxs/storage-plugin";
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 import { environment } from 'src/environments/environment';
 
@@ -25,7 +25,7 @@ import { environment } from 'src/environments/environment';
     NgxsRouterPluginModule.forRoot(),
     // Adds localStorage capabilites
     NgxsStoragePluginModule.forRoot({
-      key: "playlist"
+      key: 'playlist'
     })
   ]
 })

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 
-import { NgxsModule } from "@ngxs/store";
+import { NgxsModule } from '@ngxs/store';
 
 import { PlaylistItemComponent } from './components/playlist-item/playlist-item.component';
 import { PlaylistHomeComponent } from './pages/playlist-home/playlist-home.component';
@@ -18,7 +18,7 @@ import { UserPlaylistState } from './store/user-playlist/user-playlist.state';
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: "", component: PlaylistHomeComponent, resolve: [UserPlaylistResolver] }
+      { path: '', component: PlaylistHomeComponent, resolve: [UserPlaylistResolver] }
     ]),
     NgxsModule.forFeature([PlaylistState, UserPlaylistState])
   ],

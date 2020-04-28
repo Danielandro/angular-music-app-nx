@@ -1,7 +1,7 @@
 import { State, Selector, StateContext, Action } from '@ngxs/store';
 import { EntityState, createEntityAdapter } from 'ngxs-entity';
 import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
-import { UserPlaylistActions } from "./user-playlist.actions";
+import { UserPlaylistActions } from './user-playlist.actions';
 import { Injectable } from '@angular/core';
 import { MusicApiService } from 'src/app/core/services/music-api.service';
 import { tap, catchError } from 'rxjs/operators';
