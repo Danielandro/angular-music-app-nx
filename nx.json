@@ -16,6 +16,9 @@
     },
     "music-e2e": {
       "tags": []
+    },
+    "music-feature-auth": {
+      "tags": []
     }
   }
 }

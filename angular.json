@@ -52,17 +52,10 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/music/src/favicon.ico",
-              "apps/music/src/assets"
-            ],
-            "styles": [
-              "apps/music/src/styles.scss"
-            ],
+            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
+            "styles": ["apps/music/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/assets/scss/modules/"
-              ]
+              "includePaths": ["src/assets/scss/modules/"]
             },
             "scripts": []
           },
@@ -122,13 +115,8 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.spec.json",
             "karmaConfig": "apps/music/karma.conf.js",
-            "assets": [
-              "apps/music/src/favicon.ico",
-              "apps/music/src/assets"
-            ],
-            "styles": [
-              "apps/music/src/styles.scss"
-            ],
+            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
+            "styles": ["apps/music/src/styles.scss"],
             "scripts": []
           }
         },
@@ -139,9 +127,7 @@
               "apps/music/tsconfig.app.json",
               "apps/music/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ],
+            "exclude": ["**/node_modules/**"],
             "fix": true
           }
         }
@@ -167,11 +153,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/music-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ],
+            "exclude": ["**/node_modules/**"],
             "fix": true
           }
+        }
+      }
+    },
+    "music-feature-auth": {
+      "projectType": "library",
+      "root": "libs/music/feature-auth",
+      "sourceRoot": "libs/music/feature-auth/src",
+      "prefix": "angular-music-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/feature-auth/tsconfig.lib.json",
+              "libs/music/feature-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/music/feature-auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/feature-auth/jest.config.js",
+            "tsConfig": "libs/music/feature-auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/music/feature-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

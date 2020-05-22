@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PlaylistModule } from './feature/playlist/playlist.module';
 
-import { AuthModule } from './feature/auth/auth.module';
+import { MusicFeatureAuthModule } from '@angular-music-app/music/feature-auth';
 import { CoreModule } from './core/core.module';
 
 
@@ -19,7 +19,7 @@ import { CoreModule } from './core/core.module';
       { path: 'playlists', loadChildren: () => import('./feature/playlist/playlist.module').then(m => m.PlaylistModule) },
       // { path: "**", redirectTo: "/playlists" }
     ]),
-    AuthModule
+    MusicFeatureAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

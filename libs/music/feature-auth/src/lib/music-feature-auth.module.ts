@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule, Route } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { RouterModule } from '@angular/router';
 import { AuthService } from './auth.service';
 
-
+export const musicFeatureAuthRoutes: Route[] = [];
 
 @NgModule({
   declarations: [LoginComponent],
@@ -14,4 +14,4 @@ import { AuthService } from './auth.service';
   ],
   providers: [AuthService]
 })
-export class AuthModule { }
+export class MusicFeatureAuthModule { }
