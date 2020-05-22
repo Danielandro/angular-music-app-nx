@@ -8,10 +8,10 @@
     "nx.json": "*"
   },
   "projects": {
-    "angular-music-app": {
+    "music-app-nx": {
       "tags": []
     },
-    "angular-music-app-e2e": {
+    "music-app-nx-e2e": {
       "tags": []
     }
   }
