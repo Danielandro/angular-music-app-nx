@@ -19,6 +19,9 @@
       ],
       "@angular-music-app/music/feature-auth": [
         "libs/music/feature-auth/src/index.ts"
+      ],
+      "@angular-music-app/music/data-access-auth": [
+        "libs/music/data-access-auth/src/index.ts"
       ]
     },
     "rootDir": "."

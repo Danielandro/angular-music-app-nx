@@ -36,7 +36,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "styleext": "scss"
         }
       },
       "root": "apps/music",
@@ -182,6 +182,38 @@
             "tsConfig": "libs/music/feature-auth/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/music/feature-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "music-data-access-auth": {
+      "projectType": "library",
+      "root": "libs/music/data-access-auth",
+      "sourceRoot": "libs/music/data-access-auth/src",
+      "prefix": "angular-music-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/data-access-auth/tsconfig.lib.json",
+              "libs/music/data-access-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/music/data-access-auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/data-access-auth/jest.config.js",
+            "tsConfig": "libs/music/data-access-auth/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/music/data-access-auth/src/test-setup.ts"
           }
         }
       },

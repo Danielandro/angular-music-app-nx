@@ -19,6 +19,9 @@
     },
     "music-feature-auth": {
       "tags": []
+    },
+    "music-data-access-auth": {
+      "tags": []
     }
   }
 }

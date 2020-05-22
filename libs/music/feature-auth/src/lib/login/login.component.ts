@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '@angular-music-app/music/data-access-auth';
 
 @Component({
   templateUrl: './login.component.html',
