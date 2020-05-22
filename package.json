@@ -70,6 +70,10 @@
     "tslint": "~5.18.0",
     "typescript": "~3.7.5",
     "@nrwl/workspace": "9.3.0",
-    "prettier": "2.0.4"
+    "prettier": "2.0.4",
+    "@nrwl/jest": "9.3.0",
+    "jest": "25.2.3",
+    "@types/jest": "25.1.4",
+    "ts-jest": "25.2.1"
   }
 }

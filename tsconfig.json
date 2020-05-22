@@ -18,7 +18,11 @@
       "es2018",
       "dom"
     ],
-    "paths": {},
+    "paths": {
+      "@angular-music-app/music/api-interfaces-music": [
+        "libs/music/api-interfaces-music/src/index.ts"
+      ]
+    },
     "rootDir": "."
   },
   "angularCompilerOptions": {

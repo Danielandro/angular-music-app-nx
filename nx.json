@@ -8,10 +8,13 @@
     "nx.json": "*"
   },
   "projects": {
-    "music-app-nx": {
+    "music-api-interfaces-music": {
       "tags": []
     },
-    "music-app-nx-e2e": {
+    "music": {
+      "tags": []
+    },
+    "music-e2e": {
       "tags": []
     }
   }
