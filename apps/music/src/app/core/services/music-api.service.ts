@@ -2,14 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { tap, map, catchError } from 'rxjs/operators';
-import { Artist } from '../../../../../../libs/music/api-interfaces-music/src/lib/artist';
-import { SinglePlaylist } from '../../../../../../libs/music/api-interfaces-music/src/lib/single-playlist.model';
-import { TopPlaylistResponseData, TopPlaylist } from '../../../../../../libs/music/api-interfaces-music/src/lib/top-playlist.model';
-import { UserPlaylistResponseData, UserPlaylist } from '../../../../../../libs/music/api-interfaces-music/src/lib/user-playlist.model';
+import { SinglePlaylist } from '@angular-music-app/music/api-interfaces-music';
+import { TopPlaylistResponseData, TopPlaylist } from '@angular-music-app/music/api-interfaces-music';
+import { UserPlaylistResponseData, UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { CoreModule } from '../core.module';
 import { Store } from '@ngxs/store';
-import { UserPlaylistActions } from 'src/app/feature/playlist/store/user-playlist/user-playlist.actions';
-import { ErrorData, PlaylistError } from 'src/app/shared/models/base-playlist.interface';
+import { UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
+import { PlaylistError } from '@angular-music-app/music/api-interfaces-music';
 
 @Injectable({
   providedIn: CoreModule

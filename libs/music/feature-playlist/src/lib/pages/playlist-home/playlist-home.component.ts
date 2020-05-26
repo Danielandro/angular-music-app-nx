@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicApiService } from 'src/app/core/services/music-api.service';
+import { MusicApiService } from 'apps/music/src/app/core/services/music-api.service';
 import { Observable } from 'rxjs';
-import { Artist } from 'src/app/shared/models/artist';
-import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
+import { Artist } from '@angular-music-app/music/api-interfaces-music';
+import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { Select } from '@ngxs/store';
-import { UserPlaylistState } from '../../store/user-playlist/user-playlist.state';
-import { ErrorData } from 'src/app/shared/models/base-playlist.interface';
+import { UserPlaylistState } from '@angular-music-app/music/state/state-playlist';
+import { ErrorData } from '@angular-music-app/music/api-interfaces-music';
 
 @Component({
   selector: 'app-home',

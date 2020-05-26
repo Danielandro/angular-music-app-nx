@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 
 import { NgxsModule } from '@ngxs/store';
 
 import { PlaylistItemComponent } from './components/playlist-item/playlist-item.component';
 import { PlaylistHomeComponent } from './pages/playlist-home/playlist-home.component';
 import { UserPlaylistResolver } from './user-playlist-resolver.guard';
-import { PlaylistState } from './store/playlist.state';
-import { UserPlaylistState } from './store/user-playlist/user-playlist.state';
+import { PlaylistState } from '@angular-music-app/music/state/state-playlist';
+import { UserPlaylistState } from '@angular-music-app/music/state/state-playlist';
 
 @NgModule({
   declarations: [
@@ -29,4 +29,4 @@ import { UserPlaylistState } from './store/user-playlist/user-playlist.state';
     UserPlaylistResolver
   ]
 })
-export class PlaylistModule { }
+export class MusicFeaturePlaylistModule { }

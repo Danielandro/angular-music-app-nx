@@ -22,6 +22,12 @@
     },
     "music-data-access-auth": {
       "tags": []
+    },
+    "music-feature-playlist": {
+      "tags": []
+    },
+    "music-state-playlist": {
+      "tags": []
     }
   }
 }

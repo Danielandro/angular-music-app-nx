@@ -1,6 +1,7 @@
-import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
-import { ErrorData, PlaylistError } from 'src/app/shared/models/base-playlist.interface';
+import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
+import { ErrorData, PlaylistError } from '@angular-music-app/music/api-interfaces-music';
 
+// tslint:disable-next-line:no-namespace
 export namespace UserPlaylistActions {
   export class FetchUserPlaylists {
     public static readonly type = '[Playlist Resolver] Fetch User Playlists';

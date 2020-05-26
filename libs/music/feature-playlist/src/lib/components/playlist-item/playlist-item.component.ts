@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
+import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
 
 @Component({
   selector: 'app-playlist-item',

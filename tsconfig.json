@@ -11,8 +11,13 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
       "@angular-music-app/music/api-interfaces-music": [
         "libs/music/api-interfaces-music/src/index.ts"
@@ -22,6 +27,12 @@
       ],
       "@angular-music-app/music/data-access-auth": [
         "libs/music/data-access-auth/src/index.ts"
+      ],
+      "@angular-music-app/music/feature-playlist": [
+        "libs/music/feature-playlist/src/index.ts"
+      ],
+      "@angular-music-app/music/state/state-playlist": [
+        "libs/music/state/playlist/src/index.ts"
       ]
     },
     "rootDir": "."

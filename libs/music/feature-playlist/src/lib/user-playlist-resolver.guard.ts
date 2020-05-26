@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import { PlaylistModule } from './playlist.module';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
-import { UserPlaylistState } from './store/user-playlist/user-playlist.state';
+import { UserPlaylistState } from '@angular-music-app/music/state/state-playlist';
 import { tap, finalize, first, retry } from 'rxjs/operators';
-import { UserPlaylistActions } from './store/user-playlist/user-playlist.actions';
+import { UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
 
 @Injectable()
 export class UserPlaylistResolver implements Resolve<any> {
@@ -14,8 +13,9 @@ export class UserPlaylistResolver implements Resolve<any> {
 
   constructor(private store: Store) { }
 
-  resolve(route: ActivatedRouteSnapshot,
-          state: RouterStateSnapshot
+  resolve(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
   ): Observable<any> {
 
     return this.playlistsLoaded$

@@ -1,11 +1,11 @@
 import { State, Selector, StateContext, Action } from '@ngxs/store';
 import { EntityState, createEntityAdapter } from 'ngxs-entity';
-import { UserPlaylist } from 'src/app/shared/models/user-playlist.model';
+import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { UserPlaylistActions } from './user-playlist.actions';
 import { Injectable } from '@angular/core';
 import { MusicApiService } from 'src/app/core/services/music-api.service';
 import { tap, catchError } from 'rxjs/operators';
-import { ErrorData } from 'src/app/shared/models/base-playlist.interface';
+import { ErrorData } from '@angular-music-app/music/api-interfaces-music';
 
 // add other state properties here
 export interface UserPlaylistStateModel extends EntityState<UserPlaylist> {

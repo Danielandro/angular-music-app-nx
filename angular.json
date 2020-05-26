@@ -52,10 +52,17 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
-            "styles": ["apps/music/src/styles.scss"],
+            "assets": [
+              "apps/music/src/favicon.ico",
+              "apps/music/src/assets"
+            ],
+            "styles": [
+              "apps/music/src/styles.scss"
+            ],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/assets/scss/modules/"]
+              "includePaths": [
+                "src/assets/scss/modules/"
+              ]
             },
             "scripts": []
           },
@@ -115,8 +122,13 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.spec.json",
             "karmaConfig": "apps/music/karma.conf.js",
-            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
-            "styles": ["apps/music/src/styles.scss"],
+            "assets": [
+              "apps/music/src/favicon.ico",
+              "apps/music/src/assets"
+            ],
+            "styles": [
+              "apps/music/src/styles.scss"
+            ],
             "scripts": []
           }
         },
@@ -127,7 +139,9 @@
               "apps/music/tsconfig.app.json",
               "apps/music/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"],
+            "exclude": [
+              "**/node_modules/**"
+            ],
             "fix": true
           }
         }
@@ -153,7 +167,9 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/music-e2e/tsconfig.json",
-            "exclude": ["**/node_modules/**"],
+            "exclude": [
+              "**/node_modules/**"
+            ],
             "fix": true
           }
         }
@@ -172,7 +188,10 @@
               "libs/music/feature-auth/tsconfig.lib.json",
               "libs/music/feature-auth/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/music/feature-auth/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/feature-auth/**"
+            ]
           }
         },
         "test": {
@@ -204,7 +223,10 @@
               "libs/music/data-access-auth/tsconfig.lib.json",
               "libs/music/data-access-auth/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/music/data-access-auth/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/data-access-auth/**"
+            ]
           }
         },
         "test": {
@@ -220,6 +242,70 @@
       "schematics": {
         "@nrwl/angular:component": {
           "style": "scss"
+        }
+      }
+    },
+    "music-feature-playlist": {
+      "projectType": "library",
+      "root": "libs/music/feature-playlist",
+      "sourceRoot": "libs/music/feature-playlist/src",
+      "prefix": "angular-music-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/feature-playlist/tsconfig.lib.json",
+              "libs/music/feature-playlist/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/feature-playlist/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/feature-playlist/jest.config.js",
+            "tsConfig": "libs/music/feature-playlist/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/music/feature-playlist/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "music-state-playlist": {
+      "root": "libs/music/state/playlist",
+      "sourceRoot": "libs/music/state/playlist/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/state/playlist/tsconfig.lib.json",
+              "libs/music/state/playlist/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/state/playlist/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/state/playlist/jest.config.js",
+            "tsConfig": "libs/music/state/playlist/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
         }
       }
     }
