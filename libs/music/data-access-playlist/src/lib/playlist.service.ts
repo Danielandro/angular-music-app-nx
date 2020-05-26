@@ -5,15 +5,16 @@ import { tap, map, catchError } from 'rxjs/operators';
 import { SinglePlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { TopPlaylistResponseData, TopPlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { UserPlaylistResponseData, UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
-import { CoreModule } from '../core.module';
+// import { CoreModule } from 'apps/music/src/app/core/core.module';
+import { MusicDataAccessPlaylistModule } from './music-data-access-playlist.module';
 import { Store } from '@ngxs/store';
-import { UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
-import { PlaylistError } from '@angular-music-app/music/api-interfaces-music';
+// import { UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
+// import { PlaylistError } from '@angular-music-app/music/api-interfaces-music';
 
 @Injectable({
-  providedIn: CoreModule
+  providedIn: MusicDataAccessPlaylistModule
 })
-export class MusicApiService {
+export class PlaylistService {
   musicApiUrl = 'https://api.deezer.com';
   resultsLimit = 10;
   resultsOffset = 0; // offset for pagination
@@ -71,7 +72,7 @@ export class MusicApiService {
 
     type = err.statusText;
     code = err.status;
-    this.store.dispatch(new UserPlaylistActions.FetchFailed({ error: { type, message, code } } as PlaylistError));
+    // this.store.dispatch(new UserPlaylistActions.FetchFailed({ error: { type, message, code } } as PlaylistError));
     return throwError(message);
   }
 }

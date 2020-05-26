@@ -3,7 +3,7 @@ import { EntityState, createEntityAdapter } from 'ngxs-entity';
 import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
 import { UserPlaylistActions } from './user-playlist.actions';
 import { Injectable } from '@angular/core';
-import { MusicApiService } from 'src/app/core/services/music-api.service';
+import { PlaylistService } from '@angular-music-app/music/data-access-playlist';
 import { tap, catchError } from 'rxjs/operators';
 import { ErrorData } from '@angular-music-app/music/api-interfaces-music';
 
@@ -29,7 +29,7 @@ const { selectAll } = adapter.getSelectors();
 @Injectable()
 export class UserPlaylistState {
 
-  constructor(private musicApiService: MusicApiService) { }
+  constructor(private playlistService: PlaylistService) { }
 
   // SELECTORS
   @Selector()
@@ -56,7 +56,7 @@ export class UserPlaylistState {
   // ACTIONS
   @Action(UserPlaylistActions.FetchUserPlaylists)
   fetchPlaylists({ dispatch }: StateContext<UserPlaylistStateModel>) {
-    return this.musicApiService.getUserPlaylists()
+    return this.playlistService.getUserPlaylists()
       .pipe(
         tap((res) => {
           // check if error occured

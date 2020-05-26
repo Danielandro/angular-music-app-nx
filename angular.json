@@ -56,17 +56,10 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.app.json",
             "aot": true,
-            "assets": [
-              "apps/music/src/favicon.ico",
-              "apps/music/src/assets"
-            ],
-            "styles": [
-              "apps/music/src/styles.scss"
-            ],
+            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
+            "styles": ["apps/music/src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/assets"
-              ]
+              "includePaths": ["src/assets"]
             },
             "scripts": []
           },
@@ -126,13 +119,8 @@
             "polyfills": "apps/music/src/polyfills.ts",
             "tsConfig": "apps/music/tsconfig.spec.json",
             "karmaConfig": "apps/music/karma.conf.js",
-            "assets": [
-              "apps/music/src/favicon.ico",
-              "apps/music/src/assets"
-            ],
-            "styles": [
-              "apps/music/src/styles.scss"
-            ],
+            "assets": ["apps/music/src/favicon.ico", "apps/music/src/assets"],
+            "styles": ["apps/music/src/styles.scss"],
             "scripts": []
           }
         },
@@ -143,9 +131,7 @@
               "apps/music/tsconfig.app.json",
               "apps/music/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ],
+            "exclude": ["**/node_modules/**"],
             "fix": true
           }
         }
@@ -171,9 +157,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/music-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ],
+            "exclude": ["**/node_modules/**"],
             "fix": true
           }
         }
@@ -192,10 +176,7 @@
               "libs/music/feature-auth/tsconfig.lib.json",
               "libs/music/feature-auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/music/feature-auth/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/music/feature-auth/**"]
           }
         },
         "test": {
@@ -227,10 +208,7 @@
               "libs/music/data-access-auth/tsconfig.lib.json",
               "libs/music/data-access-auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/music/data-access-auth/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/music/data-access-auth/**"]
           }
         },
         "test": {
@@ -262,10 +240,7 @@
               "libs/music/feature-playlist/tsconfig.lib.json",
               "libs/music/feature-playlist/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/music/feature-playlist/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/music/feature-playlist/**"]
           }
         },
         "test": {
@@ -297,10 +272,7 @@
               "libs/music/state/playlist/tsconfig.lib.json",
               "libs/music/state/playlist/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/music/state/playlist/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/music/state/playlist/**"]
           }
         },
         "test": {
@@ -326,10 +298,7 @@
               "libs/music/util-guards/tsconfig.lib.json",
               "libs/music/util-guards/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/music/util-guards/**"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/music/util-guards/**"]
           }
         },
         "test": {
@@ -339,6 +308,41 @@
             "tsConfig": "libs/music/util-guards/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/music/util-guards/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "music-data-access-playlist": {
+      "projectType": "library",
+      "root": "libs/music/data-access-playlist",
+      "sourceRoot": "libs/music/data-access-playlist/src",
+      "prefix": "angular-music-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/data-access-playlist/tsconfig.lib.json",
+              "libs/music/data-access-playlist/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/data-access-playlist/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/data-access-playlist/jest.config.js",
+            "tsConfig": "libs/music/data-access-playlist/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/music/data-access-playlist/src/test-setup.ts"
           }
         }
       },

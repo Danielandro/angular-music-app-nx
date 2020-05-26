@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { MusicDataAccessPlaylistModule } from '@angular-music-app/music/data-access-playlist';
 
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
@@ -14,6 +15,7 @@ import { environment } from '../../environments/environment';
   declarations: [],
   imports: [
     CommonModule,
+    MusicDataAccessPlaylistModule,
     HttpClientModule,
     // NGXS store
     NgxsModule.forRoot([], { developmentMode: !environment.production }),

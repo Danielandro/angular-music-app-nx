@@ -31,6 +31,9 @@
       ],
       "@angular-music-app/music/util-guards": [
         "libs/music/util-guards/src/index.ts"
+      ],
+      "@angular-music-app/music/data-access-playlist": [
+        "libs/music/data-access-playlist/src/index.ts"
       ]
     },
     "rootDir": "."

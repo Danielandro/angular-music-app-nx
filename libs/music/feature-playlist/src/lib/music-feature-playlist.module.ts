@@ -6,7 +6,7 @@ import { NgxsModule } from '@ngxs/store';
 
 import { PlaylistItemComponent } from './components/playlist-item/playlist-item.component';
 import { PlaylistHomeComponent } from './pages/playlist-home/playlist-home.component';
-import { UserPlaylistResolver } from './user-playlist-resolver.guard';
+import { UserPlaylistResolver } from '@angular-music-app/music/util-guards';
 import { PlaylistState } from '@angular-music-app/music/state/state-playlist';
 import { UserPlaylistState } from '@angular-music-app/music/state/state-playlist';
 
