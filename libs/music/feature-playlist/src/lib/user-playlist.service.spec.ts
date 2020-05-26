@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserPlaylistResolver } from './user-playlist-resolver.guard';
+import { UserPlaylistResolver } from '@angular-music-app/music/util-guards';
 
 describe('UserPlaylistService', () => {
   let service: UserPlaylistResolver;

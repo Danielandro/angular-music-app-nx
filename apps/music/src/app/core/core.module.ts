@@ -8,7 +8,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @NgModule({
   declarations: [],
