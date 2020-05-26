@@ -1,6 +1,6 @@
 // @use "variables";
-@use "../assets/scss/modules/fonts";
-@use "../assets/scss/modules/variables";
+@use "fonts";
+@use "variables";
 
 .container {
   display: flex;

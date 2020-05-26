@@ -34,6 +34,9 @@
       ],
       "@angular-music-app/music/data-access-playlist": [
         "libs/music/data-access-playlist/src/index.ts"
+      ],
+      "@angular-music-app/music/shared/assets": [
+        "libs/music/shared/assets/src/index.ts"
       ]
     },
     "rootDir": "."

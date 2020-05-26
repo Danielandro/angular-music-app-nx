@@ -34,6 +34,9 @@
     },
     "music-data-access-playlist": {
       "tags": []
+    },
+    "music-shared-assets": {
+      "tags": []
     }
   }
 }

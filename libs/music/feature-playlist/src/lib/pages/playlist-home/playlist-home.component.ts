@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MusicApiService } from 'apps/music/src/app/core/services/music-api.service';
+import { PlaylistService } from '@angular-music-app/music/data-access-playlist';
 import { Observable } from 'rxjs';
 import { Artist } from '@angular-music-app/music/api-interfaces-music';
 import { UserPlaylist } from '@angular-music-app/music/api-interfaces-music';
@@ -17,7 +17,7 @@ export class PlaylistHomeComponent implements OnInit {
   @Select(UserPlaylistState.selectPlaylists) userPlaylists$: Observable<UserPlaylist[]>;
   @Select(UserPlaylistState.selectError) fetchError$: Observable<ErrorData>;
 
-  constructor(private musicApiService: MusicApiService) { }
+  constructor(private playlistService: PlaylistService) { }
 
   ngOnInit(): void {
 
