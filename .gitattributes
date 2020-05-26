@@ -1,0 +1,5 @@
+# Stop Git converting fonts into text files by adding these binary declarations:
+*.ttf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
