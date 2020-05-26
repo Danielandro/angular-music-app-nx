@@ -28,6 +28,9 @@
     },
     "music-state-playlist": {
       "tags": []
+    },
+    "music-util-guards": {
+      "tags": []
     }
   }
 }

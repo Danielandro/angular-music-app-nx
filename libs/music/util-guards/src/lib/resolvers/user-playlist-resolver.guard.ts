@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
-import { UserPlaylistState } from '@angular-music-app/music/state/state-playlist';
+import { UserPlaylistState, UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
 import { tap, finalize, first, retry } from 'rxjs/operators';
-import { UserPlaylistActions } from '@angular-music-app/music/state/state-playlist';
 
 @Injectable()
 export class UserPlaylistResolver implements Resolve<any> {

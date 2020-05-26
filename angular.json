@@ -7,7 +7,11 @@
       "root": "libs/music/api-interfaces-music",
       "sourceRoot": "libs/music/api-interfaces-music/src",
       "projectType": "library",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -61,7 +65,7 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/scss/modules/"
+                "src/assets"
               ]
             },
             "scripts": []
@@ -306,6 +310,41 @@
             "tsConfig": "libs/music/state/playlist/tsconfig.spec.json",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "music-util-guards": {
+      "projectType": "library",
+      "root": "libs/music/util-guards",
+      "sourceRoot": "libs/music/util-guards/src",
+      "prefix": "angular-music-app",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/music/util-guards/tsconfig.lib.json",
+              "libs/music/util-guards/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/music/util-guards/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/music/util-guards/jest.config.js",
+            "tsConfig": "libs/music/util-guards/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/music/util-guards/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

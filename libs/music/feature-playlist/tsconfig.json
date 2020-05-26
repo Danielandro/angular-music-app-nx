@@ -1,7 +1,13 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node", "jest"]
+    "types": [
+      "node",
+      "jest"
+    ]
   },
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts",
+    "../util-guards/src/lib/resolvers/user-playlist-resolver.guard.ts"
+  ]
 }
